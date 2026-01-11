@@ -27,9 +27,9 @@ export default function UploadPage() {
     const handleAnalyze = async () => {
         if (!file) return;
 
-        const apiKey = localStorage.getItem('google_api_key');
+        const apiKey = localStorage.getItem('google_api_key') || import.meta.env.VITE_GEMINI_API_KEY;
         if (!apiKey) {
-            alert('Please set your Google API Key in the Settings (gear icon in navbar).');
+            alert('Please set your Google API Key in the Settings, or ensure the demo environment has a valid VITE_GEMINI_API_KEY configured.');
             return;
         }
 
